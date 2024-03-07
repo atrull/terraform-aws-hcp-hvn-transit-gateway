@@ -60,7 +60,7 @@ resource "hcp_aws_transit_gateway_attachment" "this" {
 }
 
 resource "aws_ec2_transit_gateway_vpc_attachment_accepter" "this" {
-  count = local.enabled ? 1 : 0
+  count = local.enabled ? (var.transit_gateway_vpc_attachment_accepter == true ? 1 : 0) : 0
 
   transit_gateway_attachment_id = hcp_aws_transit_gateway_attachment.this[0].provider_transit_gateway_attachment_id
   tags                          = module.label.tags

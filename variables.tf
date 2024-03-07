@@ -19,3 +19,9 @@ variable "delete_timeout" {
   description = "HVN transit gateway attachment delete timeout. For more details, see https://www.terraform.io/docs/configuration/resources.html#operation-timeouts"
   default     = "5m"
 }
+
+variable "transit_gateway_vpc_attachment_accepter" {
+  type        = bool
+  description = "To enable or disable auto acceptance - if we have auto acceptance we should disable this and set false"
+  default     = true
+}
